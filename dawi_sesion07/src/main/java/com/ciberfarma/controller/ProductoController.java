@@ -26,6 +26,7 @@ public class ProductoController {
 		// model.addAttribute("mensaje", "Éxito");
 		model.addAttribute("lstCategorias", repoCat.findAll());
 		model.addAttribute("producto", new Producto());
+		
 		return "crudproductos";
 	}
 	
@@ -35,7 +36,10 @@ public class ProductoController {
 	@GetMapping("/listado")
 	public String muestraListado(Model model) {
 		model.addAttribute("lstProductos", repoProd.findAll());
-		model.addAttribute("lstCategorias", repoCat.findAll());		
+		model.addAttribute("lstCategorias", repoCat.findAll());
+		model.addAttribute("producto", new Producto());
+		
+		
 		return "crudproductos";
 	}
 	
@@ -49,8 +53,12 @@ public class ProductoController {
 	
 	@PostMapping("/producto/grabar")
 	public String grabarCrudProducto(@ModelAttribute Producto producto, Model model) {
+		//model.addAttribute("lstProductos", repoProd.findAll());
+		//model.addAttribute("lstCategorias", repoCat.findAll());
+		//model.addAttribute("producto", new Producto());
 		
 		try {
+			model.addAttribute("producto", new Producto());
 			repoProd.save(producto);
 			System.out.println(producto);
 			model.addAttribute("Registro OK");

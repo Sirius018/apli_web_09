@@ -63,6 +63,7 @@
 
 			<button type="submit" class="btn btn-primary">Registrar</button>
 			<a href="/listado" class="btn btn-primary">Listado</a>
+			<button type="submit" class="btn btn-secondary">Nuevo</button>
 		</form>
 		<br>
 	
@@ -91,6 +92,12 @@
 					<td th:text="${p.stk_prod}"></td>
 					<td th:text="${p.pre_prod}"></td>
 					<td th:text="${p.objCategoria.descripcion}"></td>
+					<td>
+					<form action="/buscar" method="post">
+						<input name="id_pro" th:value="${p.id_prod}" type="hidden">
+						<button class="btn btn-warning">Editar</button>						
+					</form>
+					</td>
 					
 			
 				</tr>
