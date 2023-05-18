@@ -61,7 +61,7 @@
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary">Registrar</button>
+			<button th:text="${boton}" type="submit" class="btn btn-primary">Registrar</button>
 			<a href="/listado" class="btn btn-primary">Listado</a>
 			<button type="submit" class="btn btn-secondary">Nuevo</button>
 		</form>
@@ -76,6 +76,7 @@
 		<table class="table">
 			<thead>
 				<tr>
+					<th scope="col"></th>
 					<th scope="col">Codigo</th>
 					<th scope="col">Nombre</th>
 					<th scope="col">Stock</th>
@@ -87,6 +88,9 @@
 			</thead>
 			<tbody>
 				<tr th:each="p : ${lstProductos}">
+					<th scope="row">
+						<img alt="" th:src="${'img/productos/'+p.id_prod+'.png'}" width="50px">
+					</th>
 					<th scope="row" th:text="${p.id_prod}"></th>
 					<td th:text="${p.des_prod}"></td>
 					<td th:text="${p.stk_prod}"></td>

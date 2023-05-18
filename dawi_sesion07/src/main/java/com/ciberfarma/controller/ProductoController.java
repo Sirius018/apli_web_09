@@ -27,6 +27,8 @@ public class ProductoController {
 		// model.addAttribute("mensaje", "Éxito");
 		model.addAttribute("lstCategorias", repoCat.findAll());
 		model.addAttribute("producto", new Producto());
+		model.addAttribute("boton", "Registrar");
+		
 		
 		return "crudproductos";
 	}
@@ -82,6 +84,7 @@ public class ProductoController {
 		model.addAttribute("producto", repoProd.findById(id_prod));
 		model.addAttribute("lstProductos", repoProd.findAll());
 		model.addAttribute("lstCategorias", repoCat.findAll());
+		model.addAttribute("boton", "Registrar");
 		
 		return "crudproductos";
 		
