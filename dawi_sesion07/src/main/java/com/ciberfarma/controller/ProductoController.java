@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ciberfarma.model.Producto;
 import com.ciberfarma.repository.ICategoriaRepository;
@@ -71,6 +72,22 @@ public class ProductoController {
 		
 		return "crudproductos";		
 	}
+	
+	
+	@PostMapping("/buscar")
+	public String buscarproducto(@RequestParam(name="id_prod") String id_prod, Model model){
+		System.out.println(id_prod);
+		
+		
+		model.addAttribute("producto", repoProd.findById(id_prod));
+		model.addAttribute("lstProductos", repoProd.findAll());
+		model.addAttribute("lstCategorias", repoCat.findAll());
+		
+		return "crudproductos";
+		
+	}
+	
+	
 	
 	
 }
